@@ -1,4 +1,4 @@
-def render(expression, result):
+def render(expression: str, result: int | float | None) -> str:
     if isinstance(result, float) and result.is_integer():
         result_str = str(int(result))
     else:
@@ -6,7 +6,7 @@ def render(expression, result):
 
     box_width = max(len(expression), len(result_str)) + 4
 
-    box = []
+    box: list[str] = []
     box.append("┌" + "─" * box_width + "┐")
     box.append(
         "│"
