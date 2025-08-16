@@ -1,7 +1,7 @@
 import os
 
 
-def get_files_info(working_directory, directory="."):
+def get_files_info(working_directory: str, directory: str = ".") -> str:
     abs_working_dir = os.path.abspath(working_directory)
     target_dir = os.path.abspath(os.path.join(working_directory, directory))
     if not target_dir.startswith(abs_working_dir):
@@ -9,7 +9,7 @@ def get_files_info(working_directory, directory="."):
     if not os.path.isdir(target_dir):
         return f'Error: "{directory}" is not a directory'
     try:
-        files_info = []
+        files_info: list[str] = []
         for filename in os.listdir(target_dir):
             filepath = os.path.join(target_dir, filename)
             file_size = 0
