@@ -29,9 +29,11 @@ def main():
     print(response.text)
     if is_verbose:
         print(f"User prompt: {user_prompt}")
-        print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
         print(
-            f"Response tokens: {response.usage_metadata.candidates_token_count}"
+            f"Prompt tokens: {response.usage_metadata.prompt_token_count if response.usage_metadata else 'N/A'}"
+        )
+        print(
+            f"Response tokens: {response.usage_metadata.candidates_token_count if response.usage_metadata else 'N/A'}"
         )
 
 
